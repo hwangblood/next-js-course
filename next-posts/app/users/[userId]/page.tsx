@@ -1,4 +1,6 @@
 import { Suspense } from "react";
+import { type Metadata } from "next";
+
 import UserPosts from "./components/UserPosts";
 
 async function getUser(userId: number) {
@@ -20,14 +22,19 @@ async function getUserPosts(userId: number) {
 }
 
 type Props = {
-  params: {
-    userId: number;
-  };
+  params: { userId: number };
 };
 
-export default async function UserPage(props: Props) {
-  const userId = props.params.userId;
+export async function generateMetadata({
+  params: { userId },
+}: Props): Promise<Metadata> {
+  const userData: Promise<User> = await getUser(userId);
+  const user = await userData;
 
+  return { title: user.name, description: `This is page of ${user.name}` };
+}
+
+export default async function UserPage({ params: { userId } }: Props) {
   const userData: Promise<User> = getUser(userId);
   const userPostsData: Promise<Post[]> = getUserPosts(userId);
 
