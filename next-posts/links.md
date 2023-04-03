@@ -1,0 +1,1 @@
+- [Data Fetching: Fundamentals | Next.js](https://beta.nextjs.org/docs/data-fetching/fundamentals)
