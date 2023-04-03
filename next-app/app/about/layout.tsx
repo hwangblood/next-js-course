@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import styles from "./styles.module.css";
+import Loading from "./loading";
 
 export const metadata = {
   title: "About Page",
