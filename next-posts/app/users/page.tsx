@@ -23,6 +23,8 @@ export default async function UsersPage() {
   const usersData: Promise<User[]> = getUsers();
   const users = await usersData;
 
+  console.log("Rendering UsersPage component");
+
   const content = (
     <section>
       <h2>
