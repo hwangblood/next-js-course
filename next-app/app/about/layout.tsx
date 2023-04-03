@@ -1,5 +1,10 @@
 import styles from "./styles.module.css";
 
+export const metadata = {
+  title: "About Page",
+  description: "Description for About Page",
+};
+
 export default function AboutLayout({
   children,
 }: {
