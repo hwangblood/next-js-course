@@ -38,6 +38,7 @@ export default async function UserPage(props: Props) {
       <h1>{user.name}</h1>
       <br />
       <Suspense fallback={<h2>Loading...</h2>}>
+        {/* @ts-expect-error Async Server Component */}
         <UserPosts promise={userPostsData} />
       </Suspense>
     </>
