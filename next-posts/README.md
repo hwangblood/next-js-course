@@ -55,3 +55,25 @@ Route (pages)                              Size     First Load JS
 
 Done in 11.02s.
 ```
+
+## How does the build respond?
+
+run command `yarn run start` in terminal, and you can see like bellow:
+
+```shell
+yarn run v1.22.19
+$ next start
+ready - started server on 0.0.0.0:3000, url: http://localhost:3000
+warn  - You have enabled experimental feature (appDir) in next.config.js.
+warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.
+info  - Thank you for testing `appDir` please leave your feedback at https://nextjs.link/app-feedback
+```
+
+After starting server, open [http://localhost:3000](http://localhost:3000) with your browser and open the dev tool's **Network** tab.
+
+You can navigate between different pages, and you will see that we already have the response for static page before navigating to it.
+
+For examples:
+
+- when at `/` page, the response for `/users` page is already requested before navigating.
+- when at `/users` page, the response for `/user/[userId]` is **not** already requested before navigating. because `[userId]` param is not static, this is a SSR component, the request for fetching data will work after you navigate to the page
