@@ -14,25 +14,44 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Do We Have SSR or SSG components?
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+run command `yarn run build` in terminal, and you can see like bellow:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```shell
+yarn run v1.22.19
+$ next build
+warn  - You have enabled experimental feature (appDir) in next.config.js.
+warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.
+info  - Thank you for testing `appDir` please leave your feedback at https://nextjs.link/app-feedback
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+info  - Compiled successfully
+info  - Linting and checking validity of types
+info  - Collecting page data
+[    ] info  - Generating static pages (0/5)Rendering UsersPage component
+Rendering UsersPage component
+info  - Generating static pages (5/5)
+info  - Finalizing page optimization
 
-## Learn More
+Route (app)                                Size     First Load JS
+┌ ○ /                                      175 B          74.3 kB
+├ ○ /api/hello                             0 B                0 B
+├ ○ /users                                 175 B          74.3 kB
+└ λ /users/[userId]                        133 B          68.8 kB
++ First Load JS shared by all              68.7 kB
+  ├ chunks/455-e3a12aac2a978f1a.js         66.4 kB
+  ├ chunks/main-app-fb7cbaba4d78799f.js    202 B
+  └ chunks/webpack-af2524eb4131fcd0.js     2.06 kB
 
-To learn more about Next.js, take a look at the following resources:
+Route (pages)                              Size     First Load JS
+─ ○ /404                                   179 B          84.5 kB
++ First Load JS shared by all              84.3 kB
+  ├ chunks/main-75bcdfa6e86c091d.js        82.1 kB
+  ├ chunks/pages/_app-907dedfd0e4177db.js  192 B
+  └ chunks/webpack-af2524eb4131fcd0.js     2.06 kB
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
+○  (Static)  automatically rendered as static HTML (uses no initial props)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Done in 11.02s.
+```
