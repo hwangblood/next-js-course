@@ -14,7 +14,13 @@ async function getUser(userId: number) {
 
 async function getUserPosts(userId: number) {
   const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?userId=${userId}`
+    `https://jsonplaceholder.typicode.com/posts?userId=${userId}`,
+    {
+      // this is the default, for dynamic request in the URL, caching data after the first request
+      // cache: "force-cache",
+      // but if data is changing constantly, we don't want always see the old data, for that can use dynamic caching
+      cache: "no-store",
+    }
   );
   if (!res.ok) throw new Error(`Failed to fetch posts of userId ${userId}`);
 
