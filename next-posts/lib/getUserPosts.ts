@@ -15,7 +15,10 @@ export default async function getUserPosts(userId: number) {
       },
     }
   );
-  if (!res.ok) throw new Error(`Failed to fetch posts of userId ${userId}`);
+  if (!res.ok) {
+    // throw new Error(`Failed to fetch posts of userId ${userId}`);
+    return undefined;
+  }
 
   return res.json();
 }

@@ -6,6 +6,8 @@ import getUserPosts from "@/lib/getUserPosts";
 import getUser from "@/lib/getUser";
 import getAllUsers from "@/lib/getAllUsers";
 
+import { notFound } from "next/navigation";
+
 type Props = {
   params: { userId: number };
 };
@@ -16,6 +18,12 @@ export async function generateMetadata({
   const userData: Promise<User> = await getUser(userId);
   const user = await userData;
 
+  if (!user.name) {
+    return {
+      title: "User Not Found",
+    };
+  }
+
   return { title: user.name, description: `This is page of ${user.name}` };
 }
 
@@ -24,6 +32,10 @@ export default async function UserPage({ params: { userId } }: Props) {
   const userPostsData: Promise<Post[]> = getUserPosts(userId);
 
   const user = await userData;
+
+  if (!user.name) {
+    return notFound();
+  }
 
   return (
     <>
