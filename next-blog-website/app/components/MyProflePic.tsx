@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { FaTypo3 } from "react-icons/fa";
+import ts from "typescript";
 
 export default function MyProflePic() {
   return (
