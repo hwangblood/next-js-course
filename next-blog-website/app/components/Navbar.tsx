@@ -17,6 +17,7 @@ export default function Navbar() {
           <Link
             className="text-white/90 hover:text-white"
             href="https://www.youtube.com/@hwangblood"
+            target="_blank"
           >
             <FaYoutube />
           </Link>
@@ -30,12 +31,14 @@ export default function Navbar() {
           <Link
             className="text-white/90 hover:text-white"
             href="https://github.com/hwangblood"
+            target="_blank"
           >
             <FaGithub />
           </Link>
           <Link
             className="text-white/90 hover:text-white"
             href="https://twitter.com/_hwangblood"
+            target="_blank"
           >
             <FaTwitter />
           </Link>
