@@ -1,4 +1,6 @@
-import { getSortedPostsData } from "@/lib/posts";
+import getFormattedDate from "@/lib/getFormattedDate";
+import { getPostData, getSortedPostsData } from "@/lib/posts";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export function generateMetadata({ params }: Props) {
@@ -20,7 +22,7 @@ type Props = {
   };
 };
 
-export default function PostPage({ params }: Props) {
+export default async function PostPage({ params }: Props) {
   const posts = getSortedPostsData(); // deduped!
   const { postId } = params;
 
@@ -28,5 +30,19 @@ export default function PostPage({ params }: Props) {
     return notFound();
   }
 
-  return <div>PostPage</div>;
+  const { title, date, contentHtml } = await getPostData(postId);
+  const pubDate = getFormattedDate(date);
+
+  return (
+    <main className="px-6 prose prose-xl prose-slate dark:prose-invert mx-auto">
+      <h1 className="text-3xl mt-4 mb-0">{title}</h1>
+      <p className="mt-0">{pubDate}</p>
+      <article>
+        <section dangerouslySetInnerHTML={{ __html: contentHtml }} />
+        <p>
+          <Link href="/">← Back to home</Link>
+        </p>
+      </article>
+    </main>
+  );
 }
