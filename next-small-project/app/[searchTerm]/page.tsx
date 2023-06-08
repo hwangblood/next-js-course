@@ -4,6 +4,22 @@ type Props = {
   params: { searchTerm: string };
 };
 
+export async function generateMetadata({ params: { searchTerm } }: Props) {
+  const wikiData: Promise<SearchResult> = getWikiResults(searchTerm);
+  const data = await wikiData;
+  // "%20" is space is search URL, just make it readable
+  const displayTerm = searchTerm.replaceAll("%20", " ");
+
+  if (!data?.query?.pages) {
+    return { title: `${displayTerm} Not Found` };
+  }
+
+  return {
+    title: displayTerm,
+    desccription: `Search results for ${displayTerm}`,
+  };
+}
+
 export default async function SearchResults({ params: { searchTerm } }: Props) {
   const wikiData: Promise<SearchResult> = getWikiResults(searchTerm);
   const data = await wikiData;
