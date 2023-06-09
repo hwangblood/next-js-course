@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 
 const DATA_SOURCE_URL = "https://jsonplaceholder.typicode.com/todos";
 
+// http://localhost:3000/api/todos/23
+// http://localhost:3000/api/todos/2234  404 Not Found
 export async function GET(request: Request) {
   const id = request.url.slice(request.url.lastIndexOf("/") + 1);
 
@@ -9,7 +11,11 @@ export async function GET(request: Request) {
 
   const todo: Todo = await res.json();
 
-  if (!todo.id) return NextResponse.json({ message: "Todo not found" });
+  if (!todo.id)
+    return NextResponse.json(
+      { message: "Todo not found" },
+      { status: res.status }
+    );
 
   return NextResponse.json(todo);
 }
