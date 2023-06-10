@@ -10,11 +10,20 @@
 
 When using [Background Revalidation](https://nextjs.org/docs/app/building-your-application/data-fetching/revalidating#background-revalidation), we would have to wait that whole time, of course to have two requests go through after revalidating time, then get new data on our site, and  we may not  want that to happen and in that case we can use [On-demand Revalidation](https://nextjs.org/docs/app/building-your-application/data-fetching/revalidating#on-demand-revalidation)
 
-- 
+
+
+**Trying out On-Demand Revalidation** (production mode) :
+
+1. Add a new post
+2. send on-demand revalidation request http://localhost:3000/api/revalidate?path=/&secret=secret-token
+3. see revalidated data in http://localhost:3000
+
+
 
 ```shell
 yarn run v1.22.19
 $ next build
+- info Loaded env from /home/work/become_web_developer/next-js-course/next-blog-website/.env.local
 - info Creating an optimized production build  
 - info Compiled successfully
 - info Linting and checking validity of types  
@@ -35,16 +44,18 @@ Route (app)                                Size     First Load JS
   └ chunks/webpack-86d587ec39b3600b.js     1.64 kB
 
 Route (pages)                              Size     First Load JS
-─ ○ /404                                   181 B          74.7 kB
+┌ ○ /404                                   181 B          74.7 kB
+└ λ /api/revalidate                        0 B            74.5 kB
 + First Load JS shared by all              74.5 kB
   ├ chunks/framework-8883d1e9be70c3da.js   45.1 kB
   ├ chunks/main-50612fa76614eae9.js        27.6 kB
   ├ chunks/pages/_app-b555d5e1eab47959.js  195 B
   └ chunks/webpack-86d587ec39b3600b.js     1.64 kB
 
+λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
 ○  (Static)  automatically rendered as static HTML (uses no initial props)
 ●  (SSG)     automatically generated as static HTML + JSON (uses getStaticProps)
 
-Done in 43.21s.
+Done in 11.74s.
 ```
 
