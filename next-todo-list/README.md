@@ -1,5 +1,7 @@
 - [Data Fetching: Server Actions | Next.js](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions)
 
+- [Routing: Linking and Navigating | Next.js](https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating) > [Soft Navigation](https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#soft-navigation) ~ [Hard Navigation](https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#hard-navigation)
+
 # Starter Code
 
 Identifying a BIG Problem:
