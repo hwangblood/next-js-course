@@ -1,8 +1,19 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
+/*
+ * Routing: Middleware | Next.js
+ * https://nextjs.org/docs/app/building-your-application/routing/middleware
+ */
+
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
+  const regex = new RegExp("/api/todos/*");
+  // check whether not match the regex pattern, /api/hello
+  if (!regex.test(request.url)) {
+    console.log("request url is not of todo api");
+  }
+
   console.log("Middleware!");
   console.log(request.method);
   console.log(request.url);
@@ -17,6 +28,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // https://nextjs.org/docs/app/building-your-application/routing/middleware#matching-paths
   matcher: "/api/:path*",
 };
