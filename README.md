@@ -10,3 +10,4 @@ Learn Next.js 13 fundamentals step-by-step and build example projects along the 
 4. [next-blog-website](./next-blog-website) Chapter 6, 10
 5. [next-api-routes](./next-api-routes) Chapter 7
 6. [next-rest-api](./next-rest-api) Chapter 8-9
+7. [next-todo-list](./next-todo-list) Chapter 11
