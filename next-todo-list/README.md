@@ -1,12 +1,20 @@
 - [Data Fetching: Server Actions | Next.js](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions)
 
+# Starter Code
+
+Identifying a BIG Problem:
+
+when add a new Todo in /add route or edit a Todo in /edit route, then navigate back to home page, the updated Todo data is not available in TodoList
+
+# Getting Started
+
 run json-server:
 
 ```shell
 json-server --watch data/db.json --port 3500 -H 127.0.0.1
 ```
 
-buld result:
+build result:
 
 ```shell
 yarn run v1.22.19
