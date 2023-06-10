@@ -5,6 +5,8 @@
 - [remark-html - npm](https://www.npmjs.com/package/remark-html)
 - [notFound | Next.js](https://nextjs.org/docs/app/api-reference/functions/not-found)
 - [generateStaticParams | Next.js](https://nextjs.org/docs/app/api-reference/functions/generate-static-params)
+- [Revalidating Data | Next.js](https://nextjs.org/docs/app/building-your-application/data-fetching/revalidating)
+- [Route Segment Config | Next.js](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config)
 
 ```shell
 yarn run v1.22.19
