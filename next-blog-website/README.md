@@ -8,6 +8,10 @@
 - [Revalidating Data | Next.js](https://nextjs.org/docs/app/building-your-application/data-fetching/revalidating)
 - [Route Segment Config | Next.js](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config)
 
+When using [Background Revalidation](https://nextjs.org/docs/app/building-your-application/data-fetching/revalidating#background-revalidation), we would have to wait that whole time, of course to have two requests go through after revalidating time, then get new data on our site, and  we may not  want that to happen and in that case we can use [On-demand Revalidation](https://nextjs.org/docs/app/building-your-application/data-fetching/revalidating#on-demand-revalidation)
+
+- 
+
 ```shell
 yarn run v1.22.19
 $ next build
