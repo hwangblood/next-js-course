@@ -69,7 +69,9 @@ export default function Todo(todo: Todo) {
       style={{ opacity: !isMutating ? 1 : 0.7 }}
     >
       <label className="text-2xl hover:underline">
-        <Link href={`/edit/${todo.id}`}>{todo.title}</Link>
+        <Link prefetch={false} href={`/edit/${todo.id}`}>
+          {todo.title}
+        </Link>
       </label>
       <div className="flex items-center gap-4">
         <input

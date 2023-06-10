@@ -4,11 +4,27 @@
 
 # Starter Code
 
-Identifying a BIG Problem:
+**Identifying a BIG Problem:**
 
-when add a new Todo in /add route or edit a Todo in /edit route, then navigate back to home page, the updated Todo data is not available in / route's TodoList
+when add a new Todo in /add route or edit a Todo in /edit route, then navigate to home page, the updated Todo data is not available in / route's TodoList
 
 To solve the problem, setting `prefetch` to `false`
+
+**Another Problem:**
+
+when edit a Todo in /edit route, then navigate to home page, it updated Todo data is available in / route's TodoList.
+
+however, if we update the same Todo in / route's TodoList, then navigate to the Todo's /edit route, we can see the updated data is not sync working
+
+we already known setting `prefetch` to `false` can solve the problem, but do you really want to set all `prefetch`'s of every Link in our application?
+
+may not, we want to set `prefetch` to `false` everywhere in our application
+
+**Still Have a Problem:**
+
+Is prefetch the right solution?
+
+all todos data is working well when we using Navbar to navigating between different routes, but If we using back/forward action of web browser, data is still not working well synchronously
 
 # Getting Started
 
