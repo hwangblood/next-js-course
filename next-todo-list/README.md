@@ -26,6 +26,12 @@ Is prefetch the right solution?
 
 all todos data is working well when we using Navbar to navigating between different routes, but If we using back/forward action of web browser, data is still not working well synchronously
 
+A Better Solution is almost here
+
+https://github.com/vercel/next.js/issues/42991
+
+just downgrade to next@13.3.1, then we don't need `prefetch` anymore
+
 # Getting Started
 
 run json-server:
