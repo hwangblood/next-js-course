@@ -4,7 +4,9 @@
 
 Identifying a BIG Problem:
 
-when add a new Todo in /add route or edit a Todo in /edit route, then navigate back to home page, the updated Todo data is not available in TodoList
+when add a new Todo in /add route or edit a Todo in /edit route, then navigate back to home page, the updated Todo data is not available in / route's TodoList
+
+To solve the problem, setting `prefetch` to `false`
 
 # Getting Started
 
